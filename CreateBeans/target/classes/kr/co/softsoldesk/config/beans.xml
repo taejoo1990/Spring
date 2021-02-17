@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	 xsi:schemaLocation="http://www.springframework.org/schema/beans
+	 					http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+
+
+<!-- 자동으로 생성자를 생성자를 생성하도록 하는 객체생성 -->
+<bean class="kr.co.softsoldesk.beans.TestBeans"/> 					
+<bean id="Test1" class="kr.co.softsoldesk.beans.TestBeans"/> 				
+
+<!-- lazy-init를 활성화하여 classpathxml의 객체가생성될 때 생성자를 생성하지 않고
+getBean으로 id가 불러와졌을 때 비로소 생성자를 생성하도록 한다. -->	
+<bean id="Test2" class="kr.co.softsoldesk.beans.TestBeans" lazy-init="true"/> 		
+			
+<!-- getBean으로 호출시 새로운 객체를 생성한다.(즉 메모리주소가 다르게 보임) -->	 					
+<bean id="Test3" class="kr.co.softsoldesk.beans.TestBeans" scope="prototype"/> 	
+				
+	 					
+</beans>

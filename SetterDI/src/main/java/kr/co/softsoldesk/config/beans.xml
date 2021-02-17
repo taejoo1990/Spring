@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	 					http://www.springframework.org/schema/beans/spring-beans.xsd"
+	default-init-method="default_init"
+	default-destroy-method="default_destroy">
+
+
+	<bean id="t1" class="kr.co.softsoldesk.beans.TestBean">
+		<property name="data1" value="100" />
+		<property name="data2" value="11.11" />
+		<property name="data3" value="true" />
+		<property name="data4" value="안녕~~" />
+	
+	<!-- 객체선언 -->
+		<!-- 방법1 : 객체의 위치를 설정하면서 property화-->
+		<property name="data5">
+			<bean class="kr.co.softsoldesk.beans.DataBean"/>
+		</property>
+		<!-- 방법2 : 이미 위치가 선언된 객체의 ID를 활용하여 property화 -->
+		<property name="data6" ref="data_bean"/>
+	</bean>
+	<bean id="data_bean" class="kr.co.softsoldesk.beans.DataBean"/>
+
+</beans>
