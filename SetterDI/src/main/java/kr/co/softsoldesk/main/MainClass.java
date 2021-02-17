@@ -2,6 +2,7 @@ package kr.co.softsoldesk.main;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import kr.co.softsoldesk.beans.SamsungTv;
 import kr.co.softsoldesk.beans.TestBean;
 
 public class MainClass {
@@ -20,6 +21,14 @@ public class MainClass {
 		System.out.printf("ctx.data4 : %s\n" , t1.getData4());
 		System.out.printf("ctx.data5 : %s\n" , t1.getData5());
 		System.out.printf("ctx.data6 : %s\n" , t1.getData6());
+		
+		
+		SamsungTv t2=ctx.getBean("tv", SamsungTv.class);
+		
+		t2.powerOn();
+		t2.powerOff();
+		t2.volumeUp();
+		t2.volumeDown();
 	
 	}
 

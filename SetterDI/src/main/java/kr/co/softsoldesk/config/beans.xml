@@ -24,4 +24,9 @@
 	</bean>
 	<bean id="data_bean" class="kr.co.softsoldesk.beans.DataBean"/>
 
+	<bean id="as" class="kr.co.softsoldesk.beans.AppleSpeaker"/>
+	<bean id="tv" class="kr.co.softsoldesk.beans.SamsungTv">
+		<property name="price" value="2700000"/>
+		<property name="speaker" ref="as"/>
+	</bean>
 </beans>
