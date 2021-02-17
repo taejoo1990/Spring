@@ -29,6 +29,8 @@ public class MainClass {
 		t2.powerOff();
 		t2.volumeUp();
 		t2.volumeDown();
+		
+		ctx.close();
 	
 	}
 

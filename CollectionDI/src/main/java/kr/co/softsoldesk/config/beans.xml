@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	 					http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+
+
+
+
+<!-- bean의 클래스안에 setter가 있다는 전제 하에, property값으로 Collection 추가할 수 잇다. -->
+	<bean id="t1" class="kr.co.softsoldesk.beans.TestBean">
+		
+		<!-- Java에서 List형을 가져와 bean 생성 -->
+		<property name="list1">
+			<list>
+				<value>문자열1</value>
+				<value>문자열2</value>
+				<value>문자열3</value>
+			</list>
+		</property>
+		<property name="list2">
+			<list>
+				<value>1</value>
+				<value>2</value>
+				<value>3</value>
+			</list>
+		</property>
+		
+		
+		<property name="list3">
+		<list>
+		<bean class="kr.co.softsoldesk.beans.DataBean"/>
+		<bean class="kr.co.softsoldesk.beans.DataBean"/>
+		<ref bean="data_bean"/>
+		<ref bean="data_bean"/>
+		</list>
+		</property>
+
+	<!-- Java에서 set형을 가져와 bean 생성 -->
+	    <property name="set1">
+			<set>
+				<value>문자열1</value>
+				<value>문자열2</value>
+				<value>문자열3</value>
+			</set>
+		</property>
+		<property name="set2">
+			<set>
+				<value>1</value>
+				<value>2</value>
+				<value>3</value>
+			</set>
+		</property>
+		
+
+		<property name="set3">
+		<set>
+		<bean class="kr.co.softsoldesk.beans.DataBean"/>
+		<bean class="kr.co.softsoldesk.beans.DataBean"/>
+		<ref bean="data_bean"/>
+		<ref bean="data_bean"/>
+		</set>
+		</property>
+		
+		
+		<!-- java에서 Map형을 가져와 bean생성  -->
+		<property name="map1">
+		<map>
+		<entry key="a1" value="문자열1"/>
+		<entry key="a2" value="100" value-type="int"/>
+		<entry key="a3" value="true" value-type="boolean"/>
+		<entry key="a4" value="3.4" value-type="double"/>
+		<entry key="a5">
+		<list>
+		<value>문자열1</value>
+		<value>문자열2</value>
+		<value>문자열3</value>
+		</list>
+		</entry>
+		 
+		<entry key="a6">
+		<list>
+		<bean class="kr.co.softsoldesk.beans.DataBean"/>
+		<bean class="kr.co.softsoldesk.beans.DataBean"/>	
+		<ref bean="data_bean"></ref>
+		<ref bean="data_bean"></ref>
+		</list>
+		</entry> 
+		
+		</map>
+		</property>
+		
+		<!-- bean에서 Property형을 가져와 빈생성 -->
+		<property name="prop1">
+		<props>
+		<prop key="p1">문자열1</prop>
+		<prop key="p2">문자열2</prop>
+		<prop key="p3">문자열3</prop>
+		</props>
+		
+		</property>
+		
+</bean>
+	<bean id="data_bean" class="kr.co.softsoldesk.beans.DataBean" scope="prototype"/>
+	
+</beans>
