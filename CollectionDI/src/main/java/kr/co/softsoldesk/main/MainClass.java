@@ -8,6 +8,7 @@ import java.util.Set;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import kr.co.softsoldesk.beans.CollectionBean;
 import kr.co.softsoldesk.beans.DataBean;
 import kr.co.softsoldesk.beans.TestBean;
 
@@ -80,7 +81,15 @@ public class MainClass {
 	
 	
 	
+	CollectionBean lists=ctx.getBean("addr", CollectionBean.class);
 	
+	List<String> addr=lists.getAddressList();
+	
+	
+	
+	for(String tmp : addr) {
+		System.out.printf("addr : %s\n", tmp);
+	}
 
 	
 	ctx.close();

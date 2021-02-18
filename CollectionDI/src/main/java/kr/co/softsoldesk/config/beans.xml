@@ -105,5 +105,13 @@
 		
 </bean>
 	<bean id="data_bean" class="kr.co.softsoldesk.beans.DataBean" scope="prototype"/>
-	
+
+	<bean id="addr" class="kr.co.softsoldesk.beans.CollectionBean">
+	<property name="addressList">
+	<list>
+	<value>서울시 강남구 역삼동</value>
+	<value>서울시 성동구 행당동</value>
+	</list>
+	</property>	
+	</bean>
 </beans>
