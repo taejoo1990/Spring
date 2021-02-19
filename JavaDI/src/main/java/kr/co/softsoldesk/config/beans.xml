@@ -4,5 +4,22 @@
 	 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	 xsi:schemaLocation="http://www.springframework.org/schema/beans
 	 					http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<bean id="DataBean1" class="kr.co.softsoldesk.beans.DataBean1"/>
+	<bean id="xml1" class="kr.co.softsoldesk.beans.TestBean" lazy-init="true">
+	<constructor-arg value="100" type="int"/>
+	<constructor-arg value="문자열1" />
+	<constructor-arg ref="DataBean1"/> 
+	</bean>
 	
+	<bean id="xml2" class="kr.co.softsoldesk.beans.TestBean" lazy-init="true">
+	<property name="data1" value="300"/>
+	<property name="data2" value="문자열3"/>
+	<property name="data3" ref="DataBean1"/>
+	</bean>
+	
+	<bean id="data1" class="kr.co.softsoldesk.beans.DataBean2"/>
+	<bean id="data2" class="kr.co.softsoldesk.beans.DataBean2"/>
+	<bean id="xml3" class="kr.co.softsoldesk.beans.TestBean2" lazy-init="true" autowire="byName"/>
+	<bean id="data3" class="kr.co.softsoldesk.beans.DataBean3"/>
+	<bean id="xml4" class="kr.co.softsoldesk.beans.TestBean3" lazy-init="true" autowire="byType"/>
 	</beans>

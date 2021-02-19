@@ -2,11 +2,25 @@
 
 <beans xmlns="http://www.springframework.org/schema/beans"
 	 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	 xmlns:context="http://www.w3.org/2001/XMLSchema-instance"
+	 xmlns:context="http://www.springframework.org/schema/context"
 	 xsi:schemaLocation="http://www.springframework.org/schema/beans
 	 					http://www.springframework.org/schema/beans/spring-beans.xsd
 	 					http://www.springframework.org/schema/context
 	 					http://www.springframework.org/schema/context/spring-context.xsd">
 	
-	<bean id="xml1" class="kr.co.softsoldesk.beans.TestBean1" />
+	<!--  Bean클래스에 설정되어있는 어노테이션 이용 -->
+	<context:annotation-config/>
+	
+	<bean id="xml1" class="kr.co.softsoldesk.beans.TestBean1" >
+	<property name="data1" value="100"/>
+	</bean>
+	
+	<bean class="kr.co.softsoldesk.beans.DataBean1"/>
+	<bean id="obj4" class="kr.co.softsoldesk.beans.DataBean2"/>
+	<bean id="obj5" class="kr.co.softsoldesk.beans.DataBean2"/>
+	
+	<bean id="xml2" class="kr.co.softsoldesk.beans.TestBean2"/>
+	
+	<bean id="data3" class="kr.co.softsoldesk.beans.DataBean3"/>
+	<bean id="data4" class="kr.co.softsoldesk.beans.DataBean4"/>
 </beans>
