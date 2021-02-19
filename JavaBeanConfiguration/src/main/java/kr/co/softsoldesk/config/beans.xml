@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	 xsi:schemaLocation="http://www.springframework.org/schema/beans
+	 					http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	
+	<!-- <bean class="kr.co.softsoldesk.beans.TestBean1"/> -->
+	<bean id= "xml1" class="kr.co.softsoldesk.beans.TestBean1" lazy-init="true"/>
+	<bean id= "xml11" class="kr.co.softsoldesk.beans.TestBean2" lazy-init="true"/>
+	
+	<bean id="scope" class="kr.co.softsoldesk.beans.TestBean3" scope="prototype"/>
+	
+	<bean class="kr.co.softsoldesk.beans.TestBean4" />
+	<!-- 중복된 값이 있을 때, primary속성을 주어 유일값으로 변환해줌. -->
+	<bean class="kr.co.softsoldesk.beans.TestBean4" primary="true" />
+</beans>
