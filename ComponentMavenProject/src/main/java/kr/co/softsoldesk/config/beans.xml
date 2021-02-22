@@ -11,4 +11,18 @@
 	<!--  Bean클래스에 설정되어있는 어노테이션 이용 -->
 	<context:annotation-config/>
 
+	<!-- Type선언 -->
+	<bean class="kr.co.softsoldesk.beans.TestBean1"/>
+	<!--  ID로 식별선언 -->
+	<bean id="xml2_1" class="kr.co.softsoldesk.beans.TestBean2"/>
+	<bean id="xml2_2" class="kr.co.softsoldesk.beans.TestBean2"/>
+	
+	<!-- 패키지를 등록하면 등록된 패키지안에 클래스들을 자동으로 분석하여 등록한다. -->
+	<context:component-scan base-package="kr.co.softsoldesk.beans2"/>
+	<context:component-scan base-package="kr.co.softsoldesk.beans3"/>
+	
+	<!-- Component사용시 ID를 하나만 부여할 수 있으므로, 필요에 따라 기존의 방식으로 선언.
+	   Component base에 패키지가 선언되어 있어도 사용가능하다. -->
+	<bean id="xml4_1" class="kr.co.softsoldesk.beans2.TestBean4"/>
+	<bean id="xml4_2" class="kr.co.softsoldesk.beans2.TestBean4"/>
 </beans>
