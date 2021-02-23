@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	 xmlns:context="http://www.springframework.org/schema/context"
+	 xmlns:aop="http://www.springframework.org/schema/aop"
+	 xsi:schemaLocation="http://www.springframework.org/schema/beans
+	 					http://www.springframework.org/schema/beans/spring-beans.xsd
+	 					http://www.springframework.org/schema/context
+	 					http://www.springframework.org/schema/context/spring-context.xsd
+	 					http://www.springframework.org/schema/aop
+	 					http://www.springframework.org/schema/aop/spring-aop.xsd">
+	
+	<!--  Bean클래스에 설정되어있는 어노테이션 이용 -->
+	<context:annotation-config/>
+	
+	<bean id="xml3" class="kr.co.softsoldesk.beans2.TestBean1"/>
+	<bean id="xml1" class="kr.co.softsoldesk.beans.TestBean1"/>
+	<bean id="xml2" class="kr.co.softsoldesk.beans.TestBean2"/>
+	<bean id="advisor1" class="kr.co.softsoldesk.advisor.AdvisorClass"/>
+	
+	<aop:config>
+		<aop:aspect ref="advisor1">
+		<!-- 자료형에 따라 매개변수 입력, 갯수도 설정 가능. -->
+		<!-- <aop:pointcut expression="execution(void kr.co.softsoldesk.beans.TestBean1.method1(int)))" id="point1"/> -->
+		<!-- <aop:pointcut expression="execution(void kr.co.softsoldesk.beans.TestBean1.method1(int,String)))" id="point1"/> -->
+		<!--  자료형에 상관없이 매개변수 입력. -->
+		<!-- <aop:pointcut expression="execution(void kr.co.softsoldesk.beans.TestBean1.method1(*,*)))" id="point1"/> -->
+		<!-- 0개이상 매개변수를 입력-->
+		<!-- <aop:pointcut expression="execution(void kr.co.softsoldesk.beans.TestBean1.method1(..)))" id="point1"/> -->
+		<!-- TestBean1클래스의 모든 패키지를 가져옴 -->
+		<!-- <aop:pointcut expression="execution(void kr.co.softsoldesk.beans.TestBean1.*(..)))" id="point1"/> -->
+		
+		<!-- 메소드의 타입을 void로 한 것 이외에는 제약조건이 전혀 없음. 즉 프로젝트내의 모든 메서드 -->
+		<aop:pointcut expression="execution(void *.*.*(..)))" id="point2"/>
+		<aop:pointcut expression="execution(int *.*.*(..)))" id="point1"/>
+		<aop:before method="beforeMethod" pointcut-ref="point1"/>
+		</aop:aspect>
+		
+		
+	
+	</aop:config>
+</beans>
+	
+	
