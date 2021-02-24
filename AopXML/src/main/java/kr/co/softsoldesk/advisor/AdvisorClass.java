@@ -21,7 +21,7 @@ public class AdvisorClass {
 	 */	
 	
 	
-		public int arroundMethod(ProceedingJoinPoint pjp)throws Throwable {
+		public int aroundMethod(ProceedingJoinPoint pjp)throws Throwable {
 		
 		System.out.println("arroundMethod 호출");
 		int a1=(Integer)pjp.proceed();
